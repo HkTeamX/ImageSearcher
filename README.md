@@ -1,6 +1,4 @@
-# ImageSearcher-ts
-
-最新使用ts重写版本
+# ImageSearcher
 
 ## 🚀支持情况
 
@@ -15,10 +13,10 @@
 
 ## 🎉使用方法
 
-~~~sh
+```sh
 pnpm install image_searcher
-~~~
+```
 
 ## ⭐星星
 
-[![Stargazers over time](https://starchart.cc/huankong233/ImageSearcher-ts.svg)](https://starchart.cc/huankong233/ImageSearcher-ts)
+[![Stargazers over time](https://starchart.cc/HkTeamX/ImageSearcher-ts.svg)](https://starchart.cc/HkTeamX/ImageSearcher-ts)

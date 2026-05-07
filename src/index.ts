@@ -1,13 +1,14 @@
-export { AnimeTrace } from './libs/AnimeTrace.js'
-export { ascii2d } from './libs/ascii2d.js'
-export { EHentai } from './libs/EHentai.js'
-export { IqDB } from './libs/IqDB.js'
-export { SauceNAO } from './libs/SauceNAO.js'
-export { TraceMoe } from './libs/TraceMoe.js'
+export * from '@/libs/Ascii2d/index.js'
+export type * from '@/libs/Ascii2d/types.js'
 
-export type { AnimeTraceReq, AnimeTraceRes } from './libs/AnimeTrace.js'
-export type { ascii2dReq, ascii2dRes } from './libs/ascii2d.js'
-export type { EhentaiReq, EhentaiRes } from './libs/EHentai.js'
-export type { IqDBReq, IqDBRes } from './libs/IqDB.js'
-export type { SauceNAOReq, SauceNAORes } from './libs/SauceNAO.js'
-export type { TraceMoeReq, TraceMoeRes } from './libs/TraceMoe.js'
+export * from '@/libs/Iqdb/index.js'
+export type * from '@/libs/Iqdb/types.js'
+
+export * from '@/libs/SauceNAO/index.js'
+export type * from '@/libs/SauceNAO/types.js'
+
+export * from '@/libs/TinEye/index.js'
+export type * from '@/libs/TinEye/types.js'
+
+export * from '@/libs/TraceMoe/index.js'
+export type * from '@/libs/TraceMoe/types.js'
