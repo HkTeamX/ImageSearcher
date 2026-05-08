@@ -1,7 +1,7 @@
 {
   "name": "image_searcher",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "image searcher of multiple search engines",
   "author": "huan_kong",
   "license": "MIT",
@@ -22,10 +22,7 @@
     "domelementtype": "^3.0.0",
     "file-type": "^22.0.1",
     "flaresolverr-client": "^1.2.0",
-    "ky": "^2.0.2",
-    "tough-cookie": "^6.0.1",
-    "typescript": "^6.0.3"
-
+    "ky": "^2.0.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^8.2.0",
@@ -34,6 +31,7 @@
     "eslint": "^10.2.1",
     "jiti": "^2.6.1",
     "tsdown": "^0.21.10",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.3"
   }
 }

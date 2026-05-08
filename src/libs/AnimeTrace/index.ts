@@ -14,6 +14,9 @@ export async function AnimeTrace(options: AnimeTraceOptions): Promise<AnimeTrace
   else if ('url' in options) {
     form.append('url', options.url)
   }
+  else if ('base64' in options) {
+    form.append('base64', options.base64)
+  }
   else {
     throw new Error('[AnimeTrace Error]: please input path or url')
   }

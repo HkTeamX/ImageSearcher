@@ -8,6 +8,6 @@ export interface UseFlareSolverrOptions {
 
 export async function useFlareSolverr(options: UseFlareSolverrOptions): Promise<V1ResponseIndex['request.get']> {
   const flaresolverr = new FlareSolverrClient(options.api)
-  const sessionManager = await flaresolverr.createSession({ session: 'image_seacher' }, true)
+  const sessionManager = await flaresolverr.createSession({ session: 'image_searcher' }, true)
   return await sessionManager.requestGet({ url: options.url, maxTimeout: 600000 })
 }

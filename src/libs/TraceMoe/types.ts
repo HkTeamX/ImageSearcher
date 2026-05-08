@@ -1,7 +1,7 @@
 import type { BaseOptions } from '@/utils/BaseOptions.js'
 
 export type TraceMoeOptions = BaseOptions<{
-  curBorders?: boolean
+  cutBorders?: boolean
   anilistId?: number
   anilistInfo?: boolean
 }>
