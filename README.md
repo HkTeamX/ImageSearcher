@@ -2,14 +2,14 @@
 
 ## 🚀支持情况
 
-| 搜索引擎                             | url | imagePath |
+| 搜索引擎                             | url | path |
 | ------------------------------------ | --- | --------- |
-| [ascii2d](https://ascii2d.net/)      | ✔   | ✔         |
-| [EHentai](https://e-hentai.org)      | ✔   | ✔         |
-| [IqDB](https://iqdb.org/)            | ✔   | ✔         |
+| [Ascii2d](https://ascii2d.net/)      | ✔   | ✔         |
+| [Iqdb](https://iqdb.org/)            | ✔   | ✔         |
 | [SauceNAO](https://saucenao.com)     | ✔   | ✔         |
 | [TraceMoe](https://trace.moe/)       | ✔   | ✔         |
 | [AnimeTrace](https://ai.animedb.cn/) | ✔   | ✔         |
+| [TinEye](https://tineye.com/)        | ✔   | ✔         |
 
 ## 🎉使用方法
 
@@ -19,4 +19,4 @@ pnpm install image_searcher
 
 ## ⭐星星
 
-[![Stargazers over time](https://starchart.cc/HkTeamX/ImageSearcher-ts.svg)](https://starchart.cc/HkTeamX/ImageSearcher-ts)
+[![Stargazers over time](https://starchart.cc/HkTeamX/ImageSearcher.svg)](https://starchart.cc/HkTeamX/ImageSearcher)

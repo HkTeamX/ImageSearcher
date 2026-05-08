@@ -1,3 +1,6 @@
+export * from '@/libs/AnimeTrace/index.js'
+export type * from '@/libs/AnimeTrace/types.js'
+
 export * from '@/libs/Ascii2d/index.js'
 export type * from '@/libs/Ascii2d/types.js'
 

@@ -28,7 +28,7 @@ export async function Ascii2d(options: Ascii2dOptions): Promise<Ascii2dRes> {
     url = response.url
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[Ascii2d Error]: please input path or url')
   }
 
   if (options.type === 'bovw') {

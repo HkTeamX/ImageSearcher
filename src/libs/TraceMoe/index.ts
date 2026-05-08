@@ -16,7 +16,7 @@ export async function TraceMoe(options: TraceMoeOptions): Promise<TraceMoeRes> {
     searchParams.append('url', options.url)
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[TraceMoe Error]: please input path or url')
   }
 
   if (options.curBorders || !('cutBorders' in options)) {

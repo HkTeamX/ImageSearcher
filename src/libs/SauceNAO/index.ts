@@ -55,7 +55,7 @@ export async function SauceNAO(options: SauceNAOOptions): Promise<SauceNAORes> {
     form.append('url', options.url)
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[SauceNAO Error]: please input path or url')
   }
 
   if (options.hide !== undefined) {

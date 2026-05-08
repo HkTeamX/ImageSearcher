@@ -23,7 +23,7 @@ export async function Iqdb(options: IqdbOptions): Promise<IqdbRes> {
     form.append('url', options.url)
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[Iqdb Error]: please input path or url')
   }
 
   if (!options.service) {

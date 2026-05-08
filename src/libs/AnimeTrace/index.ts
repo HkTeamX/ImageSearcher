@@ -15,7 +15,7 @@ export async function AnimeTrace(options: AnimeTraceOptions): Promise<AnimeTrace
     form.append('url', options.url)
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[AnimeTrace Error]: please input path or url')
   }
 
   if (options.is_multi !== undefined || !('is_multi' in options)) {
@@ -32,7 +32,7 @@ export async function AnimeTrace(options: AnimeTraceOptions): Promise<AnimeTrace
 
   const res = await ky.post(`${BASE_URL}/v1/search`, { body: form }).json<AnimeTraceApiRes>()
   if (res.code !== 0) {
-    throw new Error(res.zh_message ?? 'unknown error')
+    throw new Error(`[AnimeTrace Error]: ${res.code} JP:${res.message ?? 'Unknown error'} CN:${res.zh_message ?? '未知错误'}`)
   }
 
   return res.data

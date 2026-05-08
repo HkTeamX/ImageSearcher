@@ -15,14 +15,14 @@ export async function TinEye(options: TinEyeOptions): Promise<TinEyeRes> {
     form.append('url', options.url)
   }
   else {
-    throw new Error('please input path or url')
+    throw new Error('[TinEye Error]: please input path or url')
   }
 
   const resRaw = await ky.post(`${BASE_URL}/api/v1/result_json/`, { body: form, throwHttpErrors: false })
 
   if (resRaw.status !== 200) {
     const res = await resRaw.json<TinEyeErrorResponse>()
-    throw new Error(res.suggestions.description.join('\n'))
+    throw new Error(`[TinEye Error]: ${res.suggestions.description.join('\n')}`)
   }
 
   const res = await resRaw.json<TinEyeApiRes>()
