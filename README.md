@@ -6,7 +6,7 @@
 
 | 搜索引擎                             | url | path | 特殊选项                           |
 | ------------------------------------ | --- | ---- | ---------------------------------- |
-| [Ascii2d](https://ascii2d.net/)      | ✔   | ✔    | type, flaresolverr                 |
+| [Ascii2d](https://ascii2d.net/)      | ✔   | ✔    | type, flareSolverr                 |
 | [Iqdb](https://iqdb.org/)            | ✔   | ✔    | service, forcegray                 |
 | [SauceNAO](https://saucenao.com)     | ✔   | ✔    | hide, dbs                          |
 | [TraceMoe](https://trace.moe/)       | ✔   | ✔    | curBorders, anilistId, anilistInfo |
@@ -73,7 +73,7 @@ const result = await Ascii2d({
 const result = await Ascii2d({
   url: 'https://example.com/image.jpg',
   type: 'bovw', // 搜索类型: 'color' 或 'bovw'
-  flaresolverr: 'https://flaresolverr.example.com' // FlareSolverr API地址
+  flareSolverr: 'https://flaresolverr.example.com' // FlareSolverr API地址
 })
 ```
 
@@ -171,7 +171,7 @@ docker run -d -p 8191:8191 --name flaresolverr ghcr.io/flaresolverr/flaresolverr
 ```typescript
 const result = await Ascii2d({
   url: 'https://example.com/image.jpg',
-  flaresolverr: 'http://localhost:8191'
+  flareSolverr: 'http://localhost:8191'
 })
 ```
 
