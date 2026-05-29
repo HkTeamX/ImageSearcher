@@ -1,4 +1,5 @@
-import type { Ascii2dOptions, Ascii2dRes } from '@/libs/Ascii2d/types.js'
+import type { Ascii2dItem, Ascii2dOptions, Ascii2dRes } from '@/libs/Ascii2d/types.js'
+import { Buffer } from 'node:buffer'
 import { basename } from 'node:path'
 import { load } from 'cheerio'
 import ky from 'ky'
@@ -10,6 +11,8 @@ const BASE_URL = 'https://ascii2d.net'
 export async function Ascii2d(options: Ascii2dOptions): Promise<Ascii2dRes> {
   let page: string
   let url: string
+  let userAgent = ''
+  let cookie = ''
 
   if ('url' in options) {
     const response = await useFlareSolverr({
@@ -19,6 +22,8 @@ export async function Ascii2d(options: Ascii2dOptions): Promise<Ascii2dRes> {
 
     page = response.solution.response
     url = response.solution.url
+    userAgent = response.solution.userAgent
+    cookie = response.solution.cookies.map(c => `${c.name}=${c.value}`).join('; ')
   }
   else if ('path' in options) {
     const form = new FormData()
@@ -40,34 +45,54 @@ export async function Ascii2d(options: Ascii2dOptions): Promise<Ascii2dRes> {
     page = response.solution.response
   }
 
+  const results: Ascii2dItem[] = []
   const $ = load(page)
-  return $('.item-box')
-    .toArray()
-    .map((item) => {
-      const image = $('.image-box > img', item).first()
-      const src = image.attr('src') ?? ''
+  const elements = $('.item-box').toArray()
+  for (const element of elements) {
+    const image = $('.image-box > img', element).first()
+    const src = image.attr('src') ?? ''
+    const imageUrl = new URL(src, BASE_URL).toString()
 
-      const detailBox = $('.detail-box', item)
-      const [sourceLink, authorLink] = $('a', detailBox).toArray()
-
-      return {
-        hash: $('.hash', item).text(),
-        info: $('.info-box > .text-muted', item).text(),
-        image: new URL(src, BASE_URL).toString(),
-        source: sourceLink
-          ? {
-              link: $(sourceLink).attr('href') ?? '',
-              text: $(sourceLink).text(),
-            }
-          : undefined,
-        author: authorLink
-          ? {
-              link: $(authorLink).attr('href') ?? '',
-              text: $(authorLink).text(),
-            }
-          : undefined,
+    let base64 = ''
+    if (options.image2Base64) {
+      try {
+        const response = await ky.get(imageUrl, { headers: { cookie, 'User-Agent': userAgent } })
+        const buffer = await response.arrayBuffer()
+        const contentType = response.headers.get('content-type') ?? 'application/octet-stream'
+        const base64Data = Buffer.from(buffer).toString('base64')
+        base64 = `data:${contentType};base64,${base64Data}`
       }
+      catch {}
+    }
+
+    const detailBox = $('.detail-box', element)
+    const [sourceLink, authorLink] = $('a', detailBox).toArray()
+
+    results.push({
+      hash: $('.hash', element).text(),
+      info: $('.info-box > .text-muted', element).text(),
+      image: imageUrl,
+      base64,
+      source: sourceLink
+        ? {
+            link: $(sourceLink).attr('href') ?? '',
+            text: $(sourceLink).text(),
+          }
+        : undefined,
+      author: authorLink
+        ? {
+            link: $(authorLink).attr('href') ?? '',
+            text: $(authorLink).text(),
+          }
+        : undefined,
     })
-    .filter(item => item.hash && item.info)
-    .slice(1)
+  }
+
+  return {
+    userAgent,
+    cookie,
+    results: results
+      .filter(item => item.hash && item.info)
+      .slice(1),
+  }
 }

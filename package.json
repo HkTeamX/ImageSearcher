@@ -1,7 +1,7 @@
 {
   "name": "image_searcher",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "image searcher of multiple search engines",
   "author": "huan_kong",
   "license": "MIT",
