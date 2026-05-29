@@ -20,7 +20,6 @@ export interface AnimeTraceItem {
   box_id: string
   character: AnimeTraceCharacter[]
   not_confident: boolean
-  preview: string | null
 }
 
 export interface AnimeTraceApiRes {
