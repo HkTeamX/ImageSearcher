@@ -5,7 +5,10 @@
   "description": "image searcher of multiple search engines",
   "author": "huan_kong",
   "license": "MIT",
-  "repository": "https://github.com/HkTeamX/ImageSearcher",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HkTeamX/ImageSearcher.git"
+  },
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "files": [
