@@ -5,21 +5,21 @@ import { AnimeTrace, Ascii2d, Iqdb, SauceNAO, TinEye, TraceMoe } from '@/index.j
 const url = 'https://img.huankong.top/i/2024/04/15/661cc5a5b583d.jpg'
 const path = './test/test.jpg'
 
-Ascii2d({
-  type: 'color',
-  url,
-  flareSolverr: 'http://localhost:8191',
-  image2Base64: true,
-})
-  .then((res) => {
-    console.dir(res, { depth: null })
-  })
-
-// SauceNAO({
-//   path,
-// }).then((res) => {
-//   console.dir(res, { depth: null })
+// Ascii2d({
+//   type: 'color',
+//   url,
+//   flareSolverr: 'http://localhost:8191',
+//   image2Base64: true,
 // })
+//   .then((res) => {
+//     console.dir(res, { depth: null })
+//   })
+
+SauceNAO({
+  path,
+}).then((res) => {
+  console.dir(res, { depth: null })
+})
 
 // Iqdb({
 //   url,
